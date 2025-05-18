@@ -1,0 +1,51 @@
+tags:
+  - Auth
+requestBody:
+  required: true
+  description: Data untuk registrasi
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - username
+          - password
+        properties:
+          username:
+            type: string
+            description: Nama pengguna untuk registrasi
+          password:
+            type: string
+            description: Kata sandi untuk registrasi
+
+responses:
+  '201':
+    description: Registrasi berhasil
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "Registrasi berhasil"
+  '400':
+    description: Data tidak lengkap
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              example: "Data tidak lengkap"
+  '409':
+    description: Username sudah digunakan
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              example: "Username sudah digunakan"

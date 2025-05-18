@@ -1,0 +1,30 @@
+tags:
+  - Auth
+requestBody:
+  required: true
+  description: Login credentials
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - username
+          - password
+        properties:
+          username:
+            type: string
+          password:
+            type: string
+
+responses:
+  '200':
+    description: Token akses berhasil dibuat
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            access_token:
+              type: string
+  '401':
+    description: Username atau password salah
